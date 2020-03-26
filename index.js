@@ -1,6 +1,5 @@
-
 import { NativeModules } from 'react-native';
 
-const { RNRnUnionpay } = NativeModules;
+const { UnionPayModule } = NativeModules;
 
-export default RNRnUnionpay;
+export default UnionPayModule;

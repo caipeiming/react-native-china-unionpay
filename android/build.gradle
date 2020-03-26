@@ -1,4 +1,3 @@
-
 buildscript {
     repositories {
         jcenter()
@@ -24,6 +23,11 @@ android {
     lintOptions {
         abortOnError false
     }
+    sourceSets.main {
+        jni.srcDirs = []
+        // 让 android studio 识别libs下的 .so 第三方包
+        jniLibs.srcDirs = ['libs']
+    }
 }
 
 repositories {
@@ -34,4 +38,3 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
-  
