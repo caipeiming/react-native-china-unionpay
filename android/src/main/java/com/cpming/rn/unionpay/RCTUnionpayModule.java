@@ -81,7 +81,7 @@ public class RCTUnionpayModule extends ReactContextBaseJavaModule implements Act
         }
         response.putString("pay_result", str);
         response.putString("msg", msg);
-        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("UnionPay_Response", response);
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("UnionPayResponse", response);
     }
 
     @Override
