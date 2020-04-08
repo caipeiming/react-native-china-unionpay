@@ -3,15 +3,19 @@ package com.cpming.rn.unionpay;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.unionpay.UPPayAssistEx;
+import com.unionpay.UPQuerySEPayInfoCallback;
+import com.unionpay.UPSEInfoResp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,9 +104,70 @@ public class RCTUnionpayModule extends ReactContextBaseJavaModule implements Act
         UPPayAssistEx.startPay(getCurrentActivity(), null, null, tn, mode);
     }
 
-    private boolean verify(String msg, String sign64, String mode) {
-        // 此处的verify，商户需送去商户后台做验签
-        return true;
-
+    /**
+     * 指定手机 pay 支付接口
+     *
+     * @param tn     交易流水号
+     * @param mode   连接环境："00" - 银联正式环境 "01" - 银联测试环境，该环境中不发生真实交易
+     * @param seType 手机pay支付类别
+     */
+    @ReactMethod
+    public void startSEPay(String tn, String mode, String seType) {
+        UPPayAssistEx.startSEPay(getCurrentActivity(), null, null, tn, mode, seType);
     }
+
+    /**
+     * 检查手机 pay 状态的接口
+     *
+     * @param promise
+     */
+    @ReactMethod
+    public void getSEPayInfo(final Promise promise) {
+        UPPayAssistEx.getSEPayInfo(this.reactContext, new UPQuerySEPayInfoCallback() {
+            @Override
+            public void onResult(String SEName, String seType, int cardNumbers, Bundle reserved) {
+                WritableMap response = Arguments.createMap();
+                response.putString("SEName", SEName);
+                response.putString("seType", seType);
+                response.putInt("cardNumbers", cardNumbers);
+                response.putMap("reserved", Arguments.fromBundle(reserved));
+                promise.resolve(response);
+            }
+
+            @Override
+            public void onError(String SEName, String seType, String errorCode, String errorDesc) {
+                if (errorDesc == null) {
+                    if (errorCode.equals(UPSEInfoResp.ERROR_NOT_SUPPORT)) {
+                        errorDesc = "硬件不支持 XXpay";
+                    } else if (errorCode.equals(UPSEInfoResp.ERROR_NOT_READY)) {
+                        errorDesc = "未开通 XXpay";
+                    } else if (errorCode.equals(UPSEInfoResp.ERROR_NONE)) {
+                        errorDesc = "可用卡数为0";
+                    } else if (errorCode.equals(UPSEInfoResp.ERROR_TSM_UNINSTALLED)) {
+                        errorDesc = "检测未安装 TSM 控件";
+                    } else if (errorCode.equals(UPSEInfoResp.ERROR_TIMEOUT)) {
+                        errorDesc = "接口超时";
+                    }
+                }
+                WritableMap response = Arguments.createMap();
+                response.putString("SEName", SEName);
+                response.putString("seType", seType);
+                response.putString("errorCode", errorCode);
+                response.putString("errorDesc", errorDesc);
+                promise.reject(errorCode, errorDesc, response);
+            }
+        });
+    }
+
+    /**
+     * 检查是否安装云闪付客户端的接口
+     *
+     * @param promise
+     */
+    @ReactMethod
+    public void checkWalletInstalled(Promise promise) {
+        boolean res = UPPayAssistEx.checkWalletInstalled(getCurrentActivity());
+        promise.resolve(res);
+    }
+
 }

@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/author/RNUnionpay.git", :tag => "master" }
   s.source_files  = "ios/RNUnionpay/**/*.{h,m}"
   s.requires_arc = true
+  s.frameworks   = 'CFNetwork','SystemConfiguration'
+  s.libraries    = 'z'
   s.vendored_libraries = "ios/RNUnionpay/paymentcontrol/*.a"
 
   s.dependency "React"
