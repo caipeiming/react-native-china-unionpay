@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   s.vendored_libraries = "ios/RNUnionpay/paymentcontrol/*.a"
 
   s.dependency "React"
-  #s.dependency "others"
 
 end
 

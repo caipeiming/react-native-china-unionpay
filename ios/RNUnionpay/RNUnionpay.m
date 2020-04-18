@@ -89,9 +89,9 @@ RCT_EXPORT_METHOD(startPay:(NSString*)tn :(NSString*)mode)
 RCT_EXPORT_METHOD(isPaymentAppInstalled:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject)
 {
     if([[UPPaymentControl defaultControl] isPaymentAppInstalled]) {
-        resolve(@(1));
+        resolve(@(YES));
     } else {
-        resolve(@(0));
+        resolve(@(NO));
     }
 }
 

@@ -12,9 +12,7 @@
     <uses-feature android:name="android.hardware.nfc.hce" />
     <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD" />
 
-    <application
-        android:allowBackup="true"
-        android:supportsRtl="true">
+    <application>
 
         <uses-library
             android:name="org.simalliance.openmobileapi"
