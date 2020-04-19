@@ -9,10 +9,9 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = package['homepage']
   s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "author" => "author@domain.cn" }
+  s.author             = { "author" => "caipeiming" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/RNUnionpay.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/caipeiming/react-native-china-unionpay.git", :tag => "master" }
   s.source_files  = "ios/RNUnionpay/**/*.{h,m}"
   s.requires_arc = true
   s.frameworks   = 'CFNetwork','SystemConfiguration'

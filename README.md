@@ -1,9 +1,5 @@
-
-
-
-
 # react-native-rn-unionpay
-
+本插件参考 [银联官方 - 手机支付控件（含安卓Pay）文档](https://open.unionpay.com/tjweb/acproduct/list?apiservId=450)。
 ## 安装
 
 ### React Native 0.60 或以上
@@ -18,16 +14,16 @@ react-native link react-native-rn-unionpay
 ```
 ### iOS 配置
 - 在工程 info.plist 设置中添加一个 URL Types 回调协议（在 UPPayDemo 工程中使 用“UPPayDemo”作为协议），用于在支付完成后返回商户客户端。请注意 URL Schemes 需要是唯一的。
-
+<p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_url_type.png" alt="Xcode set iOS urltypes"></p>
 - http 请求设置(ats)
 在测试环境测试时，需要在工程对应的 plist 文件中添加 NSAppTransportSecurity Dictionary 并同时设置里面NSAllowsArbitraryLoads 属性值为 YES，具体设置可参 照以下截图:
-
+<p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_ns_allows_arbitrary_loads.png" alt="Xcode set iOS NSAppTransportSecurity"></p>
 发生产环境可删除此设置。向 Apple 发布正式版本时请删除此设置。
 - 添加协议白名单
 在 Xcode7.0 之后的版本中进行开发，需要在工程对应的 plist 文件中，添加 LSApplicationQueriesSchemes Array 并加入 uppaysdk、uppaywallet、uppayx1、 uppayx2、uppayx3 五个 item，具体设置可参考以下截图：
-
+<p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_ls_application_queries_schemes.png" alt="Xcode set Info.plist LSApplicationQueriesSchemes"></p>
 或者直接添加如下代码到 plist 文件中：
-```plist
+```
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>uppaysdk</string>
@@ -60,11 +56,11 @@ import {Unionpay, UnionpayEmitter, UNIONPAY_MODAL_PRODUCTION, UNIONPAY_MODAL_DEV
 
 | Method                                                            | Return Type         |  iOS | Android |
 | ----------------------------------------------------------------- | ------------------- | :--: | :-----: |
-| [startPay()](#startPay)                                   | `void`   |  ✅  |   ✅    |
-| [startSEPay()](#startSEPay)                                     | `void`   |  ❌  |   ✅    |
-| [getSEPayInfo()](#getSEPayInfo)                       | `Promise<object>`            |  ❌  |   ✅    |
-| [checkWalletInstalled()](#checkWalletInstalled)                       | `Promise<boolean>`            |  ❌  |   ✅    |
-| [isPaymentAppInstalled()](#isPaymentAppInstalled)                       | `Promise<boolean>`            |  ✅  |   ❌    |
+| [startPay(tn: string, mode: string)](#startpaytn-string-mode-string)                                   | `void`   |  ✅  |   ✅    |
+| [startSEPay(tn: string, mode: string, seType: string)](#startsepaytn-string-mode-string-setype-string)                                     | `void`   |  ❌  |   ✅    |
+| [getSEPayInfo()](#getsepayinfo)                       | `Promise<object>`            |  ❌  |   ✅    |
+| [checkWalletInstalled()](#checkwalletinstalled)                       | `Promise<boolean>`            |  ❌  |   ✅    |
+| [isPaymentAppInstalled()](#ispaymentappinstalled)                       | `Promise<boolean>`            |  ✅  |   ❌    |
 ---
 ### startPay(tn: string, mode: string)
 tn - 交易流水号
@@ -149,7 +145,7 @@ export default class App extends Component {
 
 ## 测试账号
 
-[参考官网的测试环境的测试卡信息](https://open.unionpay.com/tjweb/support/faq/mchlist?id=4)
+参考官网 [测试环境的测试卡信息](https://open.unionpay.com/tjweb/support/faq/mchlist?id=4)
 测试卡信息-前台类交易
 ```
 招商银行借记卡：6226090000000048
