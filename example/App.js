@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {SafeAreaView, StyleSheet, FlatList, View, Text, Platform, TouchableHighlight, StatusBar} from 'react-native';
-import {Unionpay, UnionpayEmitter} from 'react-native-china-unionpay';
+import {Unionpay, UnionpayEmitter, UNIONPAY_MODAL_PRODUCTION, UNIONPAY_MODAL_DEVELOPMENT} from 'react-native-china-unionpay';
 
 const TN_URL_01 = "http://101.231.204.84:8091/sim/getacptn";
 
@@ -8,7 +8,7 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.isMount = true;
-        this.mode = "01";
+        this.mode = UNIONPAY_MODAL_DEVELOPMENT;
         this.startPay = this._startPay.bind(this);
         this.clearLog = this._clearLog.bind(this);
         this.getSEPayInfo = this._getSEPayInfo.bind(this);

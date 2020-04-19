@@ -1,0 +1,2 @@
+export const UNIONPAY_MODAL_PRODUCTION = "00";
+export const UNIONPAY_MODAL_DEVELOPMENT = "01";
