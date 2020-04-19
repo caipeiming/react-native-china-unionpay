@@ -7,11 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react",
+    "native",
+    "react-native",
+    "react-native-china-unionpay",
+    "china unionpay",
+    "unionpay",
+    "china",
+    "银联",
+    "中国银联",
+    "银联支付",
+    "中国银联支付"
   ],
-  "author": "",
+  "author": "caipeiming",
   "homepage": "https://github.com/caipeiming/react-native-china-unionpay.git",
-  "license": "",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.41.2"
   },

@@ -1,3 +1,4 @@
+
 # react-native-rn-unionpay
 本插件参考 [银联官方 - 手机支付控件（含安卓Pay）文档](https://open.unionpay.com/tjweb/acproduct/list?apiservId=450)。
 ## 安装
@@ -23,6 +24,7 @@ react-native link react-native-rn-unionpay
 在 Xcode7.0 之后的版本中进行开发，需要在工程对应的 plist 文件中，添加 LSApplicationQueriesSchemes Array 并加入 uppaysdk、uppaywallet、uppayx1、 uppayx2、uppayx3 五个 item，具体设置可参考以下截图：
 <p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_ls_application_queries_schemes.png" alt="Xcode set Info.plist LSApplicationQueriesSchemes"></p>
 或者直接添加如下代码到 plist 文件中：
+
 ```
 <key>LSApplicationQueriesSchemes</key>
 <array>
@@ -33,8 +35,10 @@ react-native link react-native-rn-unionpay
     <string>uppayx3</string>
 </array>
 ```
+
 - AppDelegate.m 的 下面 @end 前面添加下面代码
-```m
+
+```
 // iOS 9.x or newer
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
