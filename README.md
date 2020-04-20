@@ -1,3 +1,4 @@
+
 # react-native-china-unionpay
 
 [![npm version](https://img.shields.io/npm/v/react-native-china-unionpay.svg)](https://www.npmjs.com/package/react-native-china-unionpay)
@@ -214,5 +215,5 @@ export default class App extends Component {
 ```
 
 # 示例
-参考 [example](https://github.com/caipeiming/react-native-china-unionpay/tree/master/example)
-安卓手机也可以直接安装已编译的 [apk](https://github.com/caipeiming/react-native-china-unionpay/releases)
+- 参考 [example](https://github.com/caipeiming/react-native-china-unionpay/tree/master/example)
+- 安卓手机也可以直接安装已编译的 [apk](https://github.com/caipeiming/react-native-china-unionpay/releases)
