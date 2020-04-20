@@ -1,4 +1,3 @@
-
 # react-native-rn-unionpay
 本插件参考 [银联官方 - 手机支付控件（含安卓Pay）文档](https://open.unionpay.com/tjweb/acproduct/list?apiservId=450)。
 ## 安装
@@ -208,4 +207,4 @@ export default class App extends Component {
     姓名：全渠道
     证件类型：01
     证件号：341126197709218366
-    ```
+```
