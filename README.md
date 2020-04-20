@@ -9,21 +9,23 @@
 
 ### React Native 0.60 或以上
 ```sh
-npm install react-native-china-unionpay
+yarn add react-native-china-unionpay
 cd ios && pod install # for iOS
 ```
 ### React Native 0.59 以下
 ```sh
-npm install react-native-china-unionpay
+yarn add react-native-china-unionpay
 react-native link react-native-china-unionpay
 ```
 ### iOS 配置
 - 在工程 info.plist 设置中添加一个 URL Types 回调协议（在 UPPayDemo 工程中使 用“UPPayDemo”作为协议），用于在支付完成后返回商户客户端。请注意 URL Schemes 需要是唯一的。
 <p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_url_type.png" alt="Xcode set iOS urltypes"></p>
+
 - http 请求设置(ats)
 在测试环境测试时，需要在工程对应的 plist 文件中添加 NSAppTransportSecurity Dictionary 并同时设置里面NSAllowsArbitraryLoads 属性值为 YES，具体设置可参 照以下截图:
 <p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_ns_allows_arbitrary_loads.png" alt="Xcode set iOS NSAppTransportSecurity"></p>
 发生产环境可删除此设置。向 Apple 发布正式版本时请删除此设置。
+
 - 添加协议白名单
 在 Xcode7.0 之后的版本中进行开发，需要在工程对应的 plist 文件中，添加 LSApplicationQueriesSchemes Array 并加入 uppaysdk、uppaywallet、uppayx1、 uppayx2、uppayx3 五个 item，具体设置可参考以下截图：
 <p align="center"><img src="https://raw.githubusercontent.com/caipeiming/react-native-china-unionpay/master/ios_ls_application_queries_schemes.png" alt="Xcode set Info.plist LSApplicationQueriesSchemes"></p>
@@ -145,6 +147,7 @@ export default class App extends Component {
     _onUnionPayResponse(data) {
         console.log(data);
     }
+}
 ```
 ### mode 常量
 连接环境，有2个常量选项
