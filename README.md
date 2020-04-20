@@ -72,7 +72,9 @@ import {Unionpay, UnionpayEmitter, UNIONPAY_MODAL_PRODUCTION, UNIONPAY_MODAL_DEV
 ---
 ### startPay(tn: string, mode: string)
 tn - 交易流水号
+
 mode - 连接环境："00" - 银联正式环境 "01" - 银联测试环境，该环境中不发生真实交易
+
 通过银联工具类启动支付插件，支付结果在 [`UnionpayEmitter`](#UnionpayEmitter) 事件中获取。
 #### Examples
 ```js
@@ -80,8 +82,9 @@ Unionpay.startPay(tn, UNIONPAY_MODAL_DEVELOPMENT);
 ```
 ### startSEPay(tn: string, mode: string, seType: string)
 tn - 交易流水号
+
 mode - 连接环境："00" - 银联正式环境 "01" - 银联测试环境，该环境中不发生真实交易
-指定手机 Pay 支付接口调用
+
 seType - 手机pay支付类别
 
 调用指定手机Pay支付接口（startSEPay()）之前，需要先调用检查手机Pay状态接口（getSEPayInfo()）获取seType，startSEPay()调用方式同startPay()。
