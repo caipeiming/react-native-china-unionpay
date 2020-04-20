@@ -1,6 +1,6 @@
 # react-native-china-unionpay
 
-[![npm version](https://img.shields.io/npm/v/react-native-dark-mode.svg)](https://www.npmjs.com/package/react-native-dark-mode)
+[![npm version](https://img.shields.io/npm/v/react-native-china-unionpay.svg)](https://www.npmjs.com/package/react-native-china-unionpay)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 本插件参考 [银联官方 - 手机支付控件（含安卓Pay）文档](https://open.unionpay.com/tjweb/acproduct/list?apiservId=450)。
