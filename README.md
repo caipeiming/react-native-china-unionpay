@@ -212,3 +212,7 @@ export default class App extends Component {
     证件类型：01
     证件号：341126197709218366
 ```
+
+# 示例
+参考 [example](https://github.com/caipeiming/react-native-china-unionpay/tree/master/example)
+安卓手机也可以直接安装已编译的 [apk](https://github.com/caipeiming/react-native-china-unionpay/releases)
